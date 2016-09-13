@@ -3029,7 +3029,10 @@ TEST_F(TestLibRBD, UpdateFeatures)
 
   uint64_t disable_features;
   disable_features = features & RBD_FEATURES_MUTABLE;
+  std::cout << "XXXMG: features=" << features << std::endl;
+  std::cout << "XXXMG: disable_features=" << disable_features << std::endl;
   if (disable_features != 0) {
+    std::cout << "XXXMG: image.update_features(" << disable_features << ", false)" << std::endl;
     ASSERT_EQ(0, image.update_features(disable_features, false));
   }
 
