@@ -1597,6 +1597,15 @@ extern "C" int ceph_ll_mkdir(class ceph_mount_info *cmount,
 					 gid));
 }
 
+extern "C" int ceph_ll_mkdirx(class ceph_mount_info *cmount, Inode *parent,
+			      const char *name, mode_t mode, Inode **out,
+			      struct ceph_statx *stx, unsigned want,
+			      unsigned flags, int uid, int gid)
+{
+  return cmount->get_client()->ll_mkdirx(parent, name, mode, out, stx, want,
+					 flags, uid, gid);
+}
+
 extern "C" int ceph_ll_link(class ceph_mount_info *cmount,
 			    Inode *in, Inode *newparent,
 			    const char *name, struct stat *attr, int uid,
