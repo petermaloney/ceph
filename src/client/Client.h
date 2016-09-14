@@ -1124,6 +1124,8 @@ public:
   int ll_link(Inode *in, Inode *newparent, const char *newname,
 	      struct stat *attr, int uid = -1, int gid = -1);
   int ll_open(Inode *in, int flags, Fh **fh, int uid = -1, int gid = -1);
+  int _ll_create(Inode *parent, const char *name, mode_t mode,
+	      int flags, InodeRef *in, int caps, Fh **fhp, int uid, int gid);
   int ll_create(Inode *parent, const char *name, mode_t mode, int flags,
 		struct stat *attr, Inode **out, Fh **fhp, int uid = -1,
 		int gid = -1);
